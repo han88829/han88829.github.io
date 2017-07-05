@@ -6,10 +6,18 @@ tag: react
 
 <html>
     <head>
-        
+        博客可以使用html，作为前端我就放弃md了
     </head>
 
     <body>
-        测试文档作用
+        <div style="height:20px;ling-height:20px;font-size:16px;">
+            1、动态获取object数据，必须给数据一个初始值，否则无法调用，对象里面的数据，跑出错误；
+        </div>
+        <div style="height:20px;ling-height:20px;font-size:16px;">
+            2、请求的数据最好在 componentDidMount 中，有动态更新的数据，用state存储，或者使用 mobx||redux 进行数据管理，其他的如 componentDidUpdate使用起来非常消耗性能，不建议在数据量大的时候使用；
+        </div>
+        <div style="height:20px;ling-height:20px;font-size:16px;">
+            3、mobx的es6写法，ie浏览器不支持，如需兼容ie最好采用es5的写法（ie下不支持Ant DesignButton中套用Link标签）；
+        </div>
     </body>
 </html>
