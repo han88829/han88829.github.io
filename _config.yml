@@ -1,6 +1,10 @@
 # Basic
 title: 韩贝贝
-subtitle: 个人站
+subtitle: 个人站<br /><div style="height:50px;width:100%;text-align:center;margin-top:50px;margin-bottom:50px;">
+    <embed wmode="transparent" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.swf" quality="high"
+      bgcolor="#ffffff" width="160" height="50" name="honehoneclock" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"
+      pluginspage="http://www.macromedia.com/go/getflashplayer" />
+  </div>
 description: 欢迎来到我的个人站~
 # 头像里面的标题
 avatarTitle: leopardpan
