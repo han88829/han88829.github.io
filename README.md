@@ -33,15 +33,6 @@ Jekyll 需要依赖：Ruby、bundler
 
 
 
-***
-
-#### 博客首页   
-
-![](/images/readme//img4.png)   
-
-***  
-
-
 
 #### 感谢   
 
