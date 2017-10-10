@@ -13,7 +13,7 @@
  
  - 本科/铜陵学院电子信息工程 
  
- - 工作年限：一年半
+ - 工作年限：两年
  
  - Github: [https://github.com/han88829](https://github.com/han88829)
  
