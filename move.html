@@ -4,16 +4,20 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>鼠标移动特效</title>
+    <title>移动特效</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         * {
-            padding: 0;
             margin: 0;
+            padding: 0;
+        }
+
+        body {
+            overflow: hidden;
         }
 
         #canvas {
-            background: #000
+            background-color: black;
         }
     </style>
 </head>
@@ -21,49 +25,52 @@
 <body>
     <canvas id="canvas"></canvas>
     <script>
-        var ctx = document.getElementById('canvas'),
-            HEIGHT = document.documentElement.clientHeight,
-            WIDTH = document.documentElement.clientWidth,
+        var canvas = document.getElementById('canvas'),
+            content = canvas.getContext('2d'),
+            width = document.documentElement.clientWidth,
+            height = document.documentElement.clientHeight,
             para = {
-                num: 100,
-                color: false,//颜色如果为false，则随机
-                r: 1,//圆每次增加的半径
-                o: 0.05,//判断圆消失的条件
-                a: 1
+                color: null,
+                r: 1,
+                o: 0.05,
             },
+            round = [],
             color = 0,
-            color2,
-            round = [];//存放圆的数组
-        var content = ctx.getContext('2d');
-        ctx.width = WIDTH;
-        ctx.height = HEIGHT;
+            color2 = null;
+
+        // 设置canvas的大小
+        canvas.width = width;
+        canvas.height = height;
         window.onmousemove = function (e) {
-            x = e.clientX;
-            y = e.clientY;
+            var x = e.clientX;
+            var y = e.clientY;
 
             round.push({
-                mouseX: x,
-                mouseY: y,
-                r: para.r,//圆每次增大的数值
-                o: 1 //圆消失的条件，数值越大消失越快
+                r: para.r,
+                x: x,
+                y: y,
+                o: 1
             })
-
         }
 
         function animate() {
             if (!para.color) {
-                color += .1;
-                color2 = `hsl(${color},100%,80%)`;
+                color += 0.1;
+                color2 = `hsl(${color},100%,80%)`
             }
 
-            content.clearRect(0, 0, WIDTH, HEIGHT);
+            content.clearRect(0, 0, width, height);
 
             for (let i = 0; i < round.length; i++) {
+
                 content.fillStyle = color2;
                 content.beginPath();
-                content.arc(round[i].mouseX, round[i].mouseY, round[i].r, Math.PI * 2, false);
+                content.arc(round[i].x, round[i].y, round[i].r, Math.PI * 2, false);
+                // content.shadowBlur = 20;
+                // content.shadowColor = color2;
                 content.closePath();
                 content.fill();
+
                 round[i].r += para.r;
                 round[i].o -= para.o;
 
@@ -74,11 +81,17 @@
             }
 
 
-            window.requestAnimationFrame(animate);
+            window.requestAnimationFrame(animate)
         }
 
-
         animate();
+
+        // 监听屏幕尺寸变化
+
+        window.onresize = function () {
+            width = document.documentElement.clientWidth;
+            height = document.documentElement.clientHeight;
+        }
     </script>
 </body>
 
